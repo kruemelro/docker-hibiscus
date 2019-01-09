@@ -1,5 +1,8 @@
 FROM java:openjdk-8-jre
 
+ENV	HIBISCUS_VERSION 2.8.7
+ENV	HIBISCUS_DOWNLOAD_SHA256 df9db1a9eefefe7a14581006ed46f86f41db4162
+
 RUN curl -fsSL https://www.willuhn.de/products/hibiscus-server/releases/hibiscus-server-$HIBISCUS_VERSION.zip -o hibiscus-server.zip
 RUN echo "$HIBISCUS_DOWNLOAD_SHA256 hibiscus-server.zip" | sha1sum -c -
 RUN unzip hibiscus-server.zip -d /
