@@ -1,7 +1,4 @@
-FROM java:openjdk-7-jre
-
-ENV	HIBISCUS_VERSION 2.6.19
-ENV	HIBISCUS_DOWNLOAD_SHA256 4d236cedb391bb69a5799c7bf9cb513f816eae57
+FROM java:openjdk-8-jre
 
 RUN curl -fsSL https://www.willuhn.de/products/hibiscus-server/releases/hibiscus-server-$HIBISCUS_VERSION.zip -o hibiscus-server.zip
 RUN echo "$HIBISCUS_DOWNLOAD_SHA256 hibiscus-server.zip" | sha1sum -c -
