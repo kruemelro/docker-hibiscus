@@ -2,7 +2,7 @@
 set -e
 
 cat > /hibiscus-server/cfg/de.willuhn.jameica.hbci.rmi.HBCIDBService.properties <<EOF
-database.driver=de.willuhn.jameica.hbci.server.DBSupportMySqlImpl
+database.driver.mysql.jdbcdriver=org.mariadb.jdbc.Driver
 database.driver.mysql.jdbcurl=jdbc\:mysql\://${DB_HOST}/${DB_NAME}?useUnicode\=Yes&characterEncoding\=ISO8859_1
 database.driver.mysql.username=${DB_USERNAME}
 database.driver.mysql.password=${DB_PASSWORD}
