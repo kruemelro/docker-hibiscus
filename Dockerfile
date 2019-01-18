@@ -1,5 +1,8 @@
 FROM java:openjdk-8-jre
 
+RUN apt-get update && apt-get install -y \
+  mysql-client
+
 ENV	HIBISCUS_VERSION 2.8.7
 ENV	HIBISCUS_DOWNLOAD_SHA256 df9db1a9eefefe7a14581006ed46f86f41db4162
 
@@ -12,6 +15,9 @@ RUN echo "Europe/Berlin" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 COPY ./docker-entrypoint.sh /
+COPY ./create-tables.sh /
+
+RUN /create-tables.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 8080
